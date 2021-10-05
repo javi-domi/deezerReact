@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArtistList from "./components/Artist List/ArtistList";
 import DeezerService from "./services/DeezerService";
 
@@ -11,7 +11,8 @@ function App() {
     setSearchName(searchName);
   };
 
-  const getArtist = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getArtist = (searchName) => {
     DeezerService.getArtist(searchName)
       .then((response) => {
         setArtist(response.data);
@@ -21,6 +22,9 @@ function App() {
         console.log(error);
       });
   };
+  useEffect(() => {
+    getArtist(searchName);
+  }, [searchName]);
   return (
     <div className="App">
       <input
@@ -30,7 +34,7 @@ function App() {
         onChange={onChangeSearchName}
       />
       <input type="button" onClick={getArtist} />
-      <ArtistList artist={artist} />
+      <ArtistList artists={artist.data} />
     </div>
   );
 }

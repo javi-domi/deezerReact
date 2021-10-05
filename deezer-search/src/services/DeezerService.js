@@ -1,10 +1,8 @@
-/* eslint-disable import/no-anonymous-default-export */
-import axios from "axios";
-
-const baseUrl = "https://api.deezer.com";
+import http from "../http-common.js";
 
 const getArtist = (artist) => {
-  return axios.get(`${baseUrl}/search/artist/?q=${artist}`);
+  return http.get(`/api/v1/${artist}`);
 };
 
+// eslint-disable-next-line
 export default { getArtist };
