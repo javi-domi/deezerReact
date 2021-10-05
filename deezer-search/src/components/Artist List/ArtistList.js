@@ -1,13 +1,9 @@
 import React from "react";
 
-const ArtistList = ({ artist }) => {
+const ArtistList = (artist) => {
   return (
     <div>
-      <ul>
-        {artist.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
+      <ul>{artist}</ul>
     </div>
   );
 };
