@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ArtistList from "./components/Artist List/ArtistList";
 import DeezerService from "./services/DeezerService";
+import logo from "./assets/deezer-logo.png";
 
 function App() {
   const [artist, setArtist] = useState([]);
@@ -11,7 +12,6 @@ function App() {
     setSearchName(searchName);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getArtist = (searchName) => {
     DeezerService.getArtist(searchName)
       .then((response) => {
@@ -22,19 +22,27 @@ function App() {
         console.log(error);
       });
   };
+
   useEffect(() => {
     getArtist(searchName);
   }, [searchName]);
+
   return (
     <div className="App">
+      <img id="deezer-logo" src={logo} alt="deezer logo" />
       <input
         type="text"
+        id="searchInput"
         placeholder="Search Artist"
         value={searchName}
         onChange={onChangeSearchName}
       />
-      <input type="button" onClick={getArtist} />
-      <ArtistList artists={artist.data} />
+      {artist.length === 0 ? (
+        <div>Nada</div>
+      ) : (
+        <ArtistList artists={artist.data} />
+      )}
+      {artist.total === 0 && <div>Nothing found</div>}
     </div>
   );
 }
