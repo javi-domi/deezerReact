@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import ArtistList from "./components/Artist List/ArtistList";
+import ArtistList from "./components/ArtistList/ArtistList";
+import Logo from "./components/Logo/logo";
 import DeezerService from "./services/DeezerService";
-import logo from "./assets/deezer-logo.png";
+import "./App.css";
 
 function App() {
   const [artist, setArtist] = useState([]);
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <img id="deezer-logo" src={logo} alt="deezer logo" />
+      <Logo />
       <input
         type="text"
         id="searchInput"
