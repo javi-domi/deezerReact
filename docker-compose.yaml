@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  deezer-api:
+    build:
+      context: ./deezer-api
+      dockerfile: ./Dockerfile
+    image: "deezer-api"
+    ports:
+      - "8080:8080"
+  deezer-search:
+    build:
+      context: ./deezer-search
+      dockerfile: ./Dockerfile
+    image: "deezer-search"
+    ports:
+      - "3000:3000"
