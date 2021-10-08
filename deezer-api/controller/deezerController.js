@@ -22,5 +22,15 @@ const getAlbum = (req, res) => {
       console.log(error);
     });
 };
+const getTrack = (req, res) => {
+  axios
+    .get(`${baseUrl}/search/track/?q=${req.params.track}`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-export default { getArtist, getAlbum };
+export default { getArtist, getAlbum, getTrack };

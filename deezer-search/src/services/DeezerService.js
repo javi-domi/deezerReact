@@ -6,6 +6,9 @@ const getArtist = (artist) => {
 const getAlbum = (album) => {
   return http.get(`/album/${album}`);
 };
+const getTrack = (track) => {
+  return http.get(`/track/${track}`);
+};
 
 // eslint-disable-next-line
-export default { getArtist, getAlbum };
+export default { getArtist, getAlbum, getTrack };

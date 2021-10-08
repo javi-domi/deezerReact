@@ -1,5 +1,6 @@
 * {
   margin: 0 auto;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 .App {
@@ -31,7 +32,7 @@ input[type="text"] {
 .listContainer {
   display: flex;
   margin-right: auto;
-  overflow-y: scroll;
+  overflow-x: scroll;
   max-width: 1200px;
 }
 li {

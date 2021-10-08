@@ -1,0 +1,40 @@
+.songListContainer {
+  display: flex;
+  flex-direction: column;
+}
+.songCard {
+  padding: 10px;
+  display: flex;
+  width: 1200px;
+  align-items: center;
+  justify-content: space-evenly !important;
+}
+.songInfo {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+.songPhoto {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+.songName {
+  color: white;
+  width: 288px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.deezerLink {
+  margin-right: 8px;
+}
+a:hover {
+  color: rgb(35, 219, 106);
+}
+span {
+  color: white;
+  margin-right: 10px;
+}

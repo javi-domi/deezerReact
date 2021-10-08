@@ -4,10 +4,12 @@ import Logo from "./components/Logo/logo";
 import DeezerService from "./services/DeezerService";
 import "./App.css";
 import AlbumList from "./components/AlbumList/AlbumList";
+import TrackList from "./components/TrackList/TrackList";
 
 function App() {
   const [artist, setArtist] = useState([]);
   const [album, setAlbum] = useState([]);
+  const [track, setTrack] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   const onChangeSearchValue = (e) => {
@@ -35,14 +37,29 @@ function App() {
         console.log(error);
       });
   };
+  const getTrack = (searchValue) => {
+    DeezerService.getTrack(searchValue)
+      .then((track) => {
+        setTrack(track.data);
+        console.log(track.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     getArtist(searchValue);
+    getAlbum(searchValue);
+    getTrack(searchValue);
   }, [searchValue]);
 
-  useEffect(() => {
-    getAlbum(searchValue);
-  }, [searchValue]);
+  // useEffect(() => {
+
+  // }, [searchValue]);
+  // useEffect(() => {
+
+  // }, [searchValue]);
 
   return (
     <div className="App">
@@ -60,6 +77,7 @@ function App() {
         <div>
           <ArtistList className="listContainer" artists={artist.data} />
           <AlbumList className="listContainer" albums={album.data} />
+          <TrackList className="listContainer" tracks={track.data} />
         </div>
       )}
     </div>
