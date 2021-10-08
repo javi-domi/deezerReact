@@ -22,6 +22,13 @@
 }
 .songName {
   color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 288px;
+}
+.songText {
+  color: white;
+  font-size: 12px;
   width: 288px;
 }
 a {
