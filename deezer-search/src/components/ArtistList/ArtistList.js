@@ -4,15 +4,15 @@ import "../../App.css";
 
 const ArtistList = ({ artists }) => {
   return (
-    <div className={styles.resultContainer}>
+    <div>
       <h2>Artists:</h2>
       <div className="listContainer">
         {artists &&
           artists.map(({ name, id, picture }) => {
             return (
-              <li className="itemCard" key={id}>
-                <p className="cardTitle">{name}</p>
-                <img src={picture} alt={name} />
+              <li className={styles.artistCard} key={id}>
+                <img className={styles.artistPhoto} src={picture} alt={name} />
+                <p className={styles.artistName}>{name}</p>
               </li>
             );
           })}

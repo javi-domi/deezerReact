@@ -1,14 +1,14 @@
-.artistCard {
+.albumCard {
   padding: 10px;
   margin-right: 20px;
   text-align: center;
 }
-.artistPhoto {
+.albumPhoto {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 8px;
 }
-.artistName {
+.albumName {
   color: white;
   margin-top: 12px;
 }

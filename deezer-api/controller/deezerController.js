@@ -12,5 +12,15 @@ const getArtist = (req, res) => {
       console.log(error);
     });
 };
+const getAlbum = (req, res) => {
+  axios
+    .get(`${baseUrl}/search/album/?q=${req.params.album}`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-export default { getArtist };
+export default { getArtist, getAlbum };
